@@ -13,3 +13,24 @@
 Подсказка: для получения отдельных цифр числа используйте арифм. операции
 и НЕ ИСПОЛЬЗУЙТЕ операции с массивами
 """
+
+NUMB = input('Введите трехзначное число: ')
+
+# проверка на трехзначное число
+try:
+    NUMB = int(NUMB)
+except ValueError:
+    print('Вы ввели не число')
+else:
+    if NUMB < 0:
+        print('Вы ввели отризательнео число')
+    else:
+        if 99 < NUMB < 1000:
+            NUMB_1 = abs(NUMB // 100)
+            NUMB_2 = abs((NUMB % 100) // 10)
+            NUMB_3 = abs(NUMB % 10)
+
+            print(f"Sum = {NUMB_1 + NUMB_2 + NUMB_3}")
+            print(f"Pro = {NUMB_1 * NUMB_2 * NUMB_3}")
+        else:
+            print('Вы ввели не 3-х значное число')

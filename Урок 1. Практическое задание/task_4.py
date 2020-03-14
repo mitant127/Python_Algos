@@ -14,3 +14,66 @@
 Функцию random() использовать можно
 Опирайтесь на пример к уроку
 """
+from random import random
+
+# случайное целое число;
+print('Генератор случайного целого числа в диапазане')
+LEFT = input("от: ")
+try:
+    LEFT = int(LEFT)
+except ValueError:
+    print('Вы ввели не число')
+else:
+    RIGHT = input("до: ")
+    try:
+        RIGHT = int(RIGHT)
+    except ValueError:
+        print('Вы ввели не число')
+    else:
+        # проверяем что ограничения на своих местах
+        if LEFT > RIGHT:
+            LEFT, RIGHT = RIGHT, LEFT
+
+        NUMB = int(random() * (RIGHT - LEFT + 1)) + LEFT
+        print(f"Случайное значение в диапазоне от {LEFT} до {RIGHT}: {NUMB}")
+
+
+####################################################################################
+# случайное вещественное число;
+print('Генератор случайного дробного числа в диапазане')
+LEFT = input("от: ")
+try:
+    LEFT = float(LEFT)
+except ValueError:
+    print('Вы ввели не число')
+else:
+    RIGHT = input("до: ")
+    try:
+        RIGHT = float(RIGHT)
+    except ValueError:
+        print('Вы ввели не число')
+    else:
+        # проверяем что ограничения на своих местах
+        if LEFT > RIGHT:
+            LEFT, RIGHT = RIGHT, LEFT
+
+        NUMB = random() * (RIGHT - LEFT + 1) + LEFT
+        print(f"Случайное значение в диапазоне от {LEFT} до {RIGHT}: {round(NUMB, 3)}")
+
+
+####################################################################################
+# случайный символ
+print('Вводите символы в одном регистре!')
+LEFT = int(ord(input("Минимальное значение: ")))
+RIGHT = int(ord(input("Максимальное значение: ")))
+
+# проверяем что ограничения на своих местах
+if LEFT > RIGHT:
+    LEFT, RIGHT = RIGHT, LEFT
+
+if RIGHT > 90:
+    LEFT = LEFT - 32
+    RIGHT = RIGHT - 32
+
+NUMB = int(random() * (RIGHT - LEFT + 1) + LEFT)
+print(f"Случайное значение в диапазоне от {chr(LEFT)} до {chr(RIGHT)}: {chr(NUMB)}")
