@@ -12,3 +12,25 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+try:
+    NUMB = abs(int(input('Введите натуральное число: ')))
+except ValueError:
+    print('Это не число.')
+else:
+    EVEN = 0
+    UNEVEN = 0
+
+    while NUMB > 9:
+        if (NUMB % 10) % 2 == 0:
+            EVEN += 1
+        else:
+            UNEVEN += 1
+
+        NUMB = NUMB // 10
+
+    if NUMB % 2 == 0:
+        EVEN += 1
+    else:
+        UNEVEN += 1
+
+    print(f'Четные {EVEN}   Нечетные {UNEVEN}')

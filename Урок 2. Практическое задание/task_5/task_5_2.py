@@ -17,3 +17,24 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+NUM = 32
+STEP = 1  # будет считаль десятки
+
+
+def recursion_2(num, step):
+    if step < 10 and num < 127:  # n < 127 - топорно но удовлетворяет условию задачи :-)
+        print(f'{num} - {chr(num)}', end=' ')
+        recursion_2(num + 1, step + 1)
+    else:
+        print(f'{num} - {chr(num)}')
+        recursion_1(num + 1, 1)
+
+
+def recursion_1(num, step):
+    if num <= 127:
+        recursion_2(num, step)
+    else:
+        return 0
+
+
+recursion_1(NUM, STEP)

@@ -12,3 +12,21 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+from math import sqrt
+NUMB = 0
+try:
+    NUMB = int(input('Введите число: '))
+    sqrt(NUMB)
+except ValueError:
+    if NUMB < 0:
+        print('Вы ввели отрицательное число.')
+    else:
+        print('Это не число.')
+else:
+    INVERSE_NUMB = 0
+    while NUMB > 0:
+        excess = NUMB % 10  # находим остаток - последнюю цифру числа
+        NUMB = NUMB // 10  # делим нацело - убираем из числа последнюю цифру
+        INVERSE_NUMB = INVERSE_NUMB * 10  # увеличиваем разрядность второго числа
+        INVERSE_NUMB = INVERSE_NUMB + excess  # добавляем очередную цифру
+    print(f'Перевернутое число: {INVERSE_NUMB}')

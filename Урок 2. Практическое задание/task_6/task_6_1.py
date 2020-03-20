@@ -7,3 +7,26 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+from random import randint
+
+N = randint(0, 100)
+P = 0
+print(N)
+
+print('Угадайте число от 0 до 100.\nУ вас 10 попыток')
+
+while P <= 10:
+    try:
+        t = int(input('Угадайте'))
+    except ValueError:
+        print('Это не число.')
+    else:
+        if t < N:
+            P += 1
+            print('маленькое')
+        elif t == N:
+            print('Вы угадали!')
+            break
+        else:
+            P += 1
+            print('Большое')

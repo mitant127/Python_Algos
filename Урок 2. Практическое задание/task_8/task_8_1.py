@@ -12,3 +12,22 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+from math import sqrt
+
+NUMB_1 = 0
+NUMB_2 = 0
+try:
+    NUMB_1 = int(input('Сколько будет чисел? - '))
+    sqrt(NUMB_1)
+    NUMB_2 = int(input('Сколько будет чисел? - '))
+    sqrt(NUMB_2)
+except ValueError:
+    if NUMB_1 < 0 or NUMB_2 < 0:
+        print('Вы ввели отрицательное число.')
+    else:
+        print('Это не число.')
+else:
+    if NUMB_1 % 10:
+        pass
+    else:
+        pass

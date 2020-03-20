@@ -14,3 +14,28 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+from math import sqrt
+NUMB = 0
+
+
+def recursion(numb, inverse_numb):
+    # mathematical character
+    if numb == 0:
+        print(f'Перевернутое число: {inverse_numb}')
+        return 0
+    else:
+        excess = numb % 10  # находим остаток - последнюю цифру числа
+        inverse_numb = inverse_numb * 10  # увеличиваем разрядность второго числа
+        return recursion(numb // 10, inverse_numb + excess)
+
+
+try:
+    NUMB = int(input('Введите число: '))
+    sqrt(NUMB)
+except ValueError:
+    if NUMB < 0:
+        print('Вы ввели отрицательное число.')
+    else:
+        print('Это не число.')
+else:
+    recursion(NUMB, 0)

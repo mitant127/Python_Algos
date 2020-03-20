@@ -32,3 +32,29 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+while True:
+    # mathematical character
+    MATH_CHAR = input('Введите операцию (+, -, *, / или 0 для выхода):')
+    if MATH_CHAR == '0':
+        print('Досвидания.')
+        break
+    if MATH_CHAR in ('+', '-', '*', '/'):
+        try:
+            NUMB_1 = float(input('Введите первое число:'))
+            NUMB_2 = float(input('Введите второе число:'))
+        except ValueError:
+            print('Это не число.')
+        else:
+            if MATH_CHAR == '+':
+                print(f'{NUMB_1} {MATH_CHAR} {NUMB_2} = {NUMB_1 + NUMB_2}')
+            elif MATH_CHAR == '-':
+                print(f'{NUMB_1} {MATH_CHAR} {NUMB_2} = {NUMB_1 - NUMB_2}')
+            elif MATH_CHAR == '*':
+                print(f'{NUMB_1} {MATH_CHAR} {NUMB_2} = {NUMB_1 * NUMB_2}')
+            elif MATH_CHAR == '/':
+                if NUMB_2 != 0:
+                    print(f'{NUMB_1} {MATH_CHAR} {NUMB_2} = {NUMB_1 / NUMB_2}')
+                else:
+                    print('Деление на ноль')
+    else:
+        print('Вы ввели недопустимый символ!')

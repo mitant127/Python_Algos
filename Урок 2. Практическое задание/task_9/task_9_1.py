@@ -10,3 +10,14 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ ЦИКЛ
 """
+
+
+def rec(a, b):
+    if b == 0:
+        return 1
+    else:
+        return a * rec(a, b-1)
+
+
+c, d = 2, 20
+print(rec(c, d))

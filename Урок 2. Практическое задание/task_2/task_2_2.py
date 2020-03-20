@@ -15,3 +15,28 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def recursion(numb, even, uneven):
+    # mathematical character
+    if numb < 10:
+        if numb % 2 == 0:
+            even += 1
+        else:
+            uneven += 1
+        print(f'Четные {even}   Нечетные {uneven}')
+        return 0
+    else:
+        if (numb % 10) % 2 == 0:
+            even += 1
+        else:
+            uneven += 1
+        return recursion(numb // 10, even, uneven)
+
+
+try:
+    NUMB = abs(int(input('Введите натуральное число: ')))
+except ValueError:
+    print('Это не число.')
+else:
+    recursion(NUMB, 0, 0)

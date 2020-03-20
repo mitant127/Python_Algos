@@ -33,3 +33,35 @@
 
 ЗДЕСЬ ДОЛЖНА БЫТЬ РЕАЛИЗАЦИЯ ЧЕРЕЗ РЕКУРСИЮ
 """
+
+
+def recursion(math_char):
+    if math_char == '0':
+        return 0
+    else:
+        if math_char in ('+', '-', '*', '/'):
+            try:
+                numb_1 = float(input('Введите первое число:'))
+                numb_2 = float(input('Введите второе число:'))
+            except ValueError:
+                print('Это не число.')
+            else:
+                if math_char == '+':
+                    print(f'{numb_1} {math_char} {numb_2} = {numb_1 + numb_2}')
+                elif math_char == '-':
+                    print(f'{numb_1} {math_char} {numb_2} = {numb_1 - numb_2}')
+                elif math_char == '*':
+                    print(f'{numb_1} {math_char} {numb_2} = {numb_1 * numb_2}')
+                elif math_char == '/':
+                    if numb_2 != 0:
+                        print(
+                            f'{numb_1} {math_char} {numb_2} = {numb_1 / numb_2}')
+                    else:
+                        print('Деление на ноль')
+        else:
+            print('Вы ввели недопустимый символ!')
+        return recursion(
+            input('Введите операцию (+, -, *, / или 0 для выхода):'))
+
+
+recursion(input('Введите операцию (+, -, *, / или 0 для выхода):'))
