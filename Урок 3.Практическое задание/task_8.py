@@ -36,3 +36,20 @@
 [3, 3, 3, 3, 12]
 [3, 3, 3, 3, 12]
 """
+
+# from random import randint
+
+# MY_LIST = [[randint(0, 9) for i in range(4)] for j in range(5)]
+# print(MY_LIST)
+
+MY_LIST = []
+
+for i in range(5):
+    print(f'{i + 1}-я строка: ')
+    MY_LIST.append([])
+    for j in range(4):
+        MY_LIST[i].append(int(input('')))
+
+for k in range(len(MY_LIST)):
+    MY_LIST[k].append(sum(MY_LIST[k]))
+    print(MY_LIST[k])

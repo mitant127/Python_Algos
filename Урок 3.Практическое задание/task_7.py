@@ -7,3 +7,21 @@
 Наименьший элемент: -86, встречается в этом массиве 1 раз
 Второй наименьший элемент: -73
 """
+from random import randint
+
+MY_LIST = [randint(-100, 100) for i in range(10)]
+print(f'Исходный массив: {MY_LIST}')
+MINN = None
+
+for i in range(2):
+    if i > 0:
+        if MINN != min(MY_LIST):
+            MINN = min(MY_LIST)
+            print(f'Второй наименьший элемент: {MINN}')
+            MY_LIST.remove(MINN)
+        else:
+            print(f'Встречается в этом массиве 2 раз')
+    else:
+        MINN = min(MY_LIST)
+        print(f'Наименьший элемент: {MINN}')
+        MY_LIST.remove(MINN)
