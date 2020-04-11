@@ -25,3 +25,48 @@
 
 Предприятия, с прибылью ниже среднего значения: Копыта
 """
+from collections import defaultdict
+
+F = int(input('Введите количество предприятий для расчета прибыли: '))
+MXM, MNM = [], []
+Business = defaultdict(list)
+
+for i in range(F):
+    Business[input('Введите название предприятия: ')] = input('через пробел введите '
+        'прибыль данного\n предприятия за каждый квартал(Всего 4 квартала): ').split()
+
+for elm in Business:
+    Business[elm].append(sum(int(i) for i in Business[elm]))
+
+ecvator = sum(list(Business.get(j)[4] for j in list(i for i in Business.keys()))) / F
+
+for elm in Business:
+    if Business.get(elm)[4] < ecvator:
+        MNM.append(elm)
+    else:
+        MXM.append(elm)
+
+print(f'Средняя годовая прибыль всех предприятий: {ecvator}')
+print(f'Предприятия, с прибылью выше среднего значения: {MXM}\n'
+      f'Предприятия, с прибылью ниже среднего значения:{MNM}')
+
+"""Не получилось реализовать с помощью namedtuple
+тк p переписывается при каждом цикле, а хотелось бы создать новый экземпляр
+но не знаю как в цикле сделать создание новой переменной (на пример: p1, p2, p3, и тд)
+
+from collections import namedtuple
+
+F = int(input('Введите количество предприятий для расчета прибыли: '))
+Business = namedtuple('Business', 'name cost')
+
+for i in range(F):
+    p = Business(
+        name=input('Введите название предприятия: '),
+        cost=list(str(input('через пробел введите прибыль данного предприятия '
+                            'за каждый квартал(Всего 4 квартала): ')).split()),
+        # хотел создать еще один параметр в котором бы хранилась средняя прибыль
+        # ecvator=sum(int(i) for i in p.cost) / len(p.cost) #  не получается обратить ся к p.cost из генеритора
+    )
+    s = sum(int(i) for i in p.cost) / len(p.cost)
+    print(f'{p},\n{s}')
+    print(p.cost)"""

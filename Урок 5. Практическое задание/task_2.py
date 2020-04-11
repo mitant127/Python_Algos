@@ -11,3 +11,38 @@
 Также попробуйте решить задачу вообще без collections и применить только ваши знания по ООП
 (в частности по перегрузке методов)
 """
+
+from collections import deque
+print('Программа сложения шестнадцатиричных чисел.')
+hexlst = [str(i) for i in range(10)] + ['A', 'B', 'C', 'D', 'E', 'F']
+A = deque(input('Введите шестрадцатиричное число в верхнем регистре: '))
+B = deque(input('Введите шестрадцатиричное число в верхнем регистре: '))
+trd = deque()
+
+if len(A) < len(B):
+    A, B = B, A
+#  суммирование чисел
+n = 0  # переполнение регистра
+# перебор по меньшему массиву
+while len(B) > 0:  # перебираем массив пока в нем что то есть
+    one = hexlst.index(A.pop())  # получаем индексы из массива
+    two = hexlst.index(B.pop())  # hexlst
+    trd.appendleft(hexlst[(one + two + n) % 16])
+    if one + two >= 15:  # проверяем переполнение регистра
+        n = 1
+    else:
+        n = 0
+
+if len(A) != len(B):  # проверяем что числа не равны
+    while len(A) > 0:
+        tr = hexlst.index(A.pop())
+        trd.appendleft(hexlst[(tr + n) % 16])
+        if tr + n > 15:
+            n = 1
+        else:
+            n = 0
+
+if n == 1:
+    trd.appendleft('1')
+
+print(f'Сумма чисел равна: {trd}')
