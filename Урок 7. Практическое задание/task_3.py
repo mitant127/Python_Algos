@@ -6,3 +6,30 @@
 массива. Но если это слишком сложно, то используйте метод сортировки,
 который не рассматривался на уроках
 """
+"""Алгоритм не защищен от случаев когда в массиве есть повторяющиеся элементы
+значения которых лежат в диапазоне от min до медианы"""
+
+
+from random import randint
+from copy import deepcopy
+NUMB = 5 # int(input('Массив размером 2m + 1\nВведите m: '))
+ARY = [randint(-100, 100) for _ in range(NUMB * 2 + 1)]
+
+# выводим исходный массив и отсортированный для проверки
+print(f'{ARY}\n{sorted(ARY)}')
+
+
+def median(ary):
+    minimal = min(ary)
+    for _ in range(NUMB):  #
+        nextmin = max(ary)
+        for i in ary:
+            # if i == minimal:
+            #     continue
+            if minimal < i < nextmin:
+                nextmin = i
+        minimal = nextmin
+    return minimal
+
+
+print(median(deepcopy(ARY)))
