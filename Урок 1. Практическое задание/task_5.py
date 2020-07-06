@@ -10,18 +10,3 @@
 В обоих случаях программа должна вывести корректный результат.
 В обоих случаях он 24, но никак не -24
 """
-print('Вводите маленькие латинские буквы.!')
-LEFT = int(ord(input("Введите первый символ: ")))
-RIGHT = int(ord(input("Введите второй символ: ")))
-
-if LEFT > RIGHT:
-    LEFT, RIGHT = RIGHT, LEFT
-
-POSITION_1 = LEFT - 96
-POSITION_2 = RIGHT - 96
-DISTANCE = POSITION_2 - POSITION_1 - 1
-
-print("------------------------------------")
-print(f"Символ {chr(LEFT)} находится на {POSITION_1}")
-print(f"Символ {chr(RIGHT)} находится на {POSITION_2}")
-print(f"Дистанция между символами  {chr(LEFT)} и {chr(RIGHT)} равна {DISTANCE}")
